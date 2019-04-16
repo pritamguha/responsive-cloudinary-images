@@ -1,0 +1,22 @@
+
+<div id="app">
+  <img src="https://res.cloudinary.com/demo/image/upload/w_auto,c_scale/smiling_man.jpg">
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+        // Cloudinary
+  // const cl = cloudinary.Cloudinary.new({ cloud_name: 'you-are-a-ceo' })
+  // cl.responsive();
+   my_breakpoints = function (width){  // width - the current width of the containing element
+      return 50 * Math.ceil(width / 50);
+    }
+    var cl = cloudinary.Cloudinary.new({cloud_name: "you-are-a-ceo"}); 
+    // replace 'demo' with your cloud name in the line above 
+    cl.config({breakpoints:my_breakpoints, responsive_use_breakpoints:"resize"})
+    cl.imageTag('sample.jpg', {width: 300, height: 200, dpr: "auto", crop: "fill", clientHints: true}).toHtml();
+    cl.responsive();
+});
+</script>
